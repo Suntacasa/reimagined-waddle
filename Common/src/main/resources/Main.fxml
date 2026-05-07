@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="10"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="gui.MainController"
+      style="-fx-background-color: #f9f9f9;">
+    <padding><Insets top="15" right="15" bottom="15" left="15"/></padding>
+
+    <!-- Top bar -->
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Label text="Racing Management" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+        <HBox HBox.hgrow="ALWAYS"/>
+        <Button text="Logout" onAction="#handleLogout"
+                style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-cursor: hand;"/>
+    </HBox>
+
+    <Separator/>
+
+    <!-- Curse table -->
+    <Label text="Curse disponibile:" style="-fx-font-weight: bold;"/>
+    <TableView fx:id="cursaTable" prefHeight="180">
+        <columns>
+            <TableColumn fx:id="colCursaId" text="ID" prefWidth="60"/>
+            <TableColumn fx:id="colCapacitate" text="Capacitate Motor" prefWidth="200"/>
+            <TableColumn fx:id="colNrParticipanti" text="Nr. Participanti" prefWidth="150"/>
+        </columns>
+    </TableView>
+
+    <Separator/>
+
+    <!-- Search by echipa -->
+    <Label text="Cauta participanti dupa echipa:" style="-fx-font-weight: bold;"/>
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <TextField fx:id="searchEchipaField" promptText="ex: Suzuki, Honda..." prefWidth="250"/>
+        <Button text="Cauta" onAction="#handleSearch"
+                style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-cursor: hand;"/>
+    </HBox>
+    <TableView fx:id="participantTable" prefHeight="150">
+        <columns>
+            <TableColumn fx:id="colNume" text="Nume" prefWidth="200"/>
+            <TableColumn fx:id="colCapacitateP" text="Capacitate Motor" prefWidth="200"/>
+        </columns>
+    </TableView>
+
+    <Separator/>
+
+    <!-- Register participant -->
+    <Label text="Inscrie participant:" style="-fx-font-weight: bold;"/>
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <TextField fx:id="numeField" promptText="Nume" prefWidth="150"/>
+        <TextField fx:id="cnpField" promptText="CNP" prefWidth="130"/>
+        <TextField fx:id="echipaField" promptText="Echipa" prefWidth="100"/>
+        <ComboBox fx:id="cursaCombo" promptText="Cursa" prefWidth="130"/>
+        <Button text="Inscrie" onAction="#handleInscriere"
+                style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-cursor: hand;"/>
+    </HBox>
+
+    <Separator/>
+
+    <!-- Modify echipa -->
+    <Label text="Modifica echipa participant:" style="-fx-font-weight: bold;"/>
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <TextField fx:id="participantIdField" promptText="Participant ID" prefWidth="130"/>
+        <TextField fx:id="nouaEchipaField" promptText="Noua echipa" prefWidth="150"/>
+        <Button text="Modifica" onAction="#handleModificaEchipa"
+                style="-fx-background-color: #FF9800; -fx-text-fill: white; -fx-cursor: hand;"/>
+    </HBox>
+
+    <Label fx:id="statusLabel" style="-fx-text-fill: green;"/>
+</VBox>
