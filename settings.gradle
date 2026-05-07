@@ -1,0 +1,6 @@
+rootProject.name = 'mpp1'
+include 'Server'
+include 'Server'
+include 'Common'
+include 'Client'
+include 'Client2'
